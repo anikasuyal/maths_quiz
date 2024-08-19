@@ -37,37 +37,42 @@
             $message = "incorrect. the correct answer was $correct_answer.";
         }
         
-        $num1 = mt_rand(1, 20);
-        $num2 = mt_rand(1, 20);
-        $operations = array('+', '-', '*');
-        $operation = $operations[array_rand($operations)];
-        switch ($operation) {
-            case '+':
-                $correct_answer = $num1 + $num2;
-                break;
-            case '-':
-                $correct_answer = $num1 - $num2;
-                break;
-            case '*':
-                $correct_answer = $num1 * $num2;
-                break;
-        }
+        list($num1, $num2, $operation, $correct_answer) = generatequestion();
     } else {
-        $num1 = mt_rand(1, 20);
-        $num2 = mt_rand(1, 20);
-        $operations = array('+', '-', '*');
+        list($num1, $num2, $operation, $correct_answer) = generatequestion();
+    }
+    
+        
+        function generatequestion () {
+        $operations = array('+', '-', '*', '/');
         $operation = $operations[array_rand($operations)];
+
         switch ($operation) {
             case '+':
+                $num1 = mt_rand(1,20);
+                $num2 = mt_rand(1,20);
                 $correct_answer = $num1 + $num2;
                 break;
             case '-':
+                $num1 = mt_rand(1,20);
+                $num2 = mt_rand(1,20);
                 $correct_answer = $num1 - $num2;
                 break;
             case '*':
+                $num1 = mt_rand(1,20);
+                $num2 = mt_rand(1,20);
                 $correct_answer = $num1 * $num2;
                 break;
+            case '/':
+                do {
+                $num2 = mt_rand(1,20);
+                $num1 = mt_rand(1,20);
+                } while ($num1 % $num2 != 0);
+                $correct_answer = $num1 / $num2;
+                break;
         }
+        
+        return array($num1, $num2, $operation, $correct_answer);
     }
     ?>
     <h1>math quiz</h1>
