@@ -1,1 +1,1 @@
-Hi! This is my first project. It's a simple maths quiz with randomised maths questions, using operations +, -, and x, and random numbers between 1 and 20 (inclusive). I use this to practise quick mental maths questions when I'm bored.
+Hi! This is my first project. It's a simple maths quiz with randomised maths questions, using operations +, -, x, and /, and random numbers between 1 and 20 (inclusive). I use this to practise quick mental maths questions when I'm bored.
